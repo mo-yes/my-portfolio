@@ -1,7 +1,10 @@
 import About from "@/components/Sections/About/About";
+import Blog from "@/components/Sections/Blog/Blog";
+import Education from "@/components/Sections/Education/Education";
 import Experience from "@/components/Sections/Experience/Experience";
 import Hero from "@/components/Sections/Hero/Hero";
 import Skills from "@/components/Sections/Skills/Skills";
+import { blogsData } from "@/utils/data/blogs-data";
 
 export default function Home() {
   return (
@@ -10,6 +13,8 @@ export default function Home() {
       <About />
       <Experience />
       <Skills />
+      <Education/>
+      <Blog blogs={blogsData}/>
     </>
   );
 }

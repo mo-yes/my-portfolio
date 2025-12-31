@@ -9,6 +9,13 @@ export const metadata = {
   title: "Mohamed Yasser Portfolio",
   description:
     "This is the portfolio of Mohamed Yasser. I build responsive and modern web interfaces using React and Tailwind CSS.",
+      icons: [
+    { rel: "icon", url: "/favicon-16x16.png" },
+    { rel: "icon", url: "/favicon-32x32.png" },
+    { rel: "apple-touch-icon", url: "/apple-touch-icon.png" },
+    { rel: "icon", url: "/android-chrome-192x192.png" },
+    { rel: "icon", url: "/android-chrome-512x512.png" },
+  ],
 };
 
 export default function RootLayout({ children }) {

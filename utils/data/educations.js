@@ -1,20 +1,20 @@
 export const educations = [
   {
-    id: 1,
-    title: "Bachelor Degree",
-    duration: "2020 - Present",
-    institution: "National University of Bangladesh",
+    id: 2,
+    title: "Technical Institute Degree",
+    duration: "A Graduate of 2021",
+    institution: "Zagazig University",
   },
   {
-    id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2018 - 2020",
-    institution: "Noakhali Islamia Kamil Madrasah",
+    id: 1,
+    title: "Frontend Development Diploma",
+    duration: "Feb 2025 - Oct 2025",
+    institution: "Route Academy",
   },
   {
     id: 3,
-    title: "Secondary School Certificate",
-    duration: "2008 - 2018",
-    institution: "Baitus Saif Islamia Madrasah",
+    title: "Self-Study in Frontend Development",
+    duration: "2025 - Present",
+    institution: "Online Learning",
   }
 ]
