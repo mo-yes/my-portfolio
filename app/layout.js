@@ -1,9 +1,10 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { DM_Sans, Inter, Manrope, Poppins } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import ToastProvider from "@/components/Providers/ToastProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]  });
 
 export const metadata = {
   title: "Mohamed Yasser Portfolio",
@@ -21,7 +22,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#0d1224] text-white`}>
+      <body className={`${poppins.className} bg-[#0d1224] text-white`}>
+        <ToastProvider />
         <main className="relative min-h-screen mx-auto px-6 sm:px-12 lg:max-w-280 xl:max-w-304 2xl:max-w-368">
           <Navbar />
           {children}

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
-import { FaArrowRight } from 'react-icons/fa';
 import BlogCard from './blog-card';
+import { Icon } from '@iconify/react';
 
 export default function Blog({ blogs }) {
   const [showAll, setShowAll] = useState(false);
@@ -47,7 +47,7 @@ export default function Blog({ blogs }) {
             className="flex items-center gap-1 hover:gap-3 rounded-full bg-linear-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white transition-all duration-200 ease-out hover:text-white md:font-semibold"
           >
             <span>{showAll ? "Show Less" : "View More"}</span>
-            <FaArrowRight size={16} />
+            <Icon icon="fa-brands:arrow-right" width="40" height="40" color="#ec4899"  />
           </button>
         </div>
       )}

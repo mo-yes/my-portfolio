@@ -1,15 +1,12 @@
 import { personalData } from "@/utils/data/personal-data";
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
-import { MdDownload } from "react-icons/md";
-import { RiContactsFill } from "react-icons/ri";
 
 export default function Hero() {
   return (
     <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
-      {/* Background Image FOR HERO */}
+{/* Background Image FOR HERO */}
       <Image
         src="/hero.svg"
         alt="Hero"
@@ -18,9 +15,13 @@ export default function Hero() {
         className="absolute -top-24.5 -z-10"
       />
 {/* Hero Content */}
-      <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
+      <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8 py-8 md:py-12 lg:py-14
+">
         <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-14">
+{/* Hero Title */}
+          <h1 className="text-3xl md:text-4xl lg:text-[2.8rem] xl:text-[3rem]
+leading-10 md:leading-12 lg:leading-[3.2rem]
+">
             Hello, <br />
             This is {' '}
             <span className=" text-pink-500">{personalData.name}</span>
@@ -28,59 +29,98 @@ export default function Hero() {
             <span className=" text-[#16f2b3]">{personalData.designation}</span>
             .
           </h1>
-
-          <div className="my-12 flex items-center gap-5 ">
+{/* Hero Socials Icons */}
+          <div className="my-12 flex items-center gap-10 ">
             <Link
               href={personalData.github}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
-              <BsGithub size={40} />
+              <Icon icon="fa-brands:github" width="40" height="40" color="#ec4899" />
             </Link>
+
             <Link
               href={personalData.linkedIn}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
-              <BsLinkedin size={40} />
+              <Icon icon="fa-brands:linkedin" width="40" height="40" color="#ec4899" />
+
             </Link>
+
             <Link
               href={personalData.facebook}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
-              <FaFacebook size={40} />
+              <Icon icon="fa-brands:facebook" width="40" height="40" color="#ec4899" />
             </Link>
+
             <Link
               href={personalData.twitter}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
-              <FaTwitterSquare size={40} />
+              <Icon icon="fa-brands:twitter" width="40" height="40" color="#ec4899" />
             </Link>
           </div>
+{/* Hero Buttons */}
+<div className="flex flex-col md:flex-row items-center gap-3 w-full">
 
-          <div className="flex items-center gap-3">
-            <Link href="#contact" className="bg-linear-to-r to-pink-500 from-violet-600 p-px rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
-                <span>Contact me</span>
-                <RiContactsFill size={20} />
-              </button>
-            </Link>
+  {/* Button One */}
+  <Link href="#contact" className="w-full md:w-auto">
+    <button type="button" className=" cursor-pointer hero-btn group flex items-center justify-center gap-2 px-6 py-3 rounded-full w-full md:w-auto text-white font-semibold uppercase transition-all duration-300 bg-gradient-to-r from-pink-500 to-red-500">
+      <span>Contact me</span>
+      <Icon
+        icon="mdi:contacts"
+        width="25"
+        height="25"
+        color="#fff"
+        className="transition-transform duration-300  group-hover:translate-x-1 "
+      />
+    </button>
+  </Link>
 
-            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-linear-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" target="_blank" href={personalData.resume}
-            >
-              <span>Get Resume</span>
-              <MdDownload size={20} />
-            </Link>
+  {/* Button Two */}
+  <Link href={personalData.resume} target="_blank" className="w-full md:w-auto">
+    <button type="button" className="cursor-pointer hero-btn group flex items-center justify-center gap-2 px-6 py-3 rounded-full w-full md:w-auto text-white font-semibold uppercase transition-all duration-300 bg-linear-to-r from-violet-600 to-blue-500">
+      <span>Get Resume</span>
+      <Icon
+        icon="mdi:download"
+        width="25"
+        height="25"
+        color="#fff"
+        className="transition-transform duration-300 group-hover:translate-x-1"
+      />
+    </button>
+  </Link>
+
+  {/* Button Three */}
+  <Link href={personalData.github} target="_blank" className="w-full md:w-auto">
+    <button type="button" className="cursor-pointer hero-btn group flex items-center justify-center gap-2 px-6 py-3 rounded-full w-full md:w-auto text-white font-semibold uppercase transition-all duration-300 bg-gradient-to-r from-green-400 to-teal-500">
+      <span>GitHub</span>
+      <Icon
+        icon="mdi:github"
+        width="25"
+        height="25"
+        color="#fff"
+        className="transition-transform duration-300 group-hover:translate-x-1"
+      />
+    </button>
+  </Link>
+
+</div>
+
+
+
           </div>
-
-        </div>
-        <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-linear-to-r to-[#0a0d37]">
+          <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-linear-to-r to-[#0a0d37]">
+{/* Hero Highlight Code  */}
           <div className="flex flex-row">
             <div className="h-px w-full bg-linear-to-r from-transparent via-pink-500 to-violet-600"></div>
             <div className="h-px w-full bg-linear-to-r from-violet-600 to-transparent"></div>
           </div>
+{/* Hero Terminal code */}
           <div className="px-4 lg:px-8 py-5">
             <div className="flex flex-row space-x-2">
               <div className="h-3 w-3 rounded-full bg-red-400"></div>
@@ -88,6 +128,7 @@ export default function Hero() {
               <div className="h-3 w-3 rounded-full bg-green-200"></div>
             </div>
           </div>
+{/* Hero Function code */}
           <div className="overflow-hidden border-t-2 border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
             <code className="font-mono text-xs md:text-sm lg:text-base">
               <div className="blink">
@@ -171,6 +212,7 @@ export default function Hero() {
               <div><span className="text-gray-400">{`};`}</span></div>
             </code>
           </div>
+
         </div>
       </div>
     </section>

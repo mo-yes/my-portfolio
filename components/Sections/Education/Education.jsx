@@ -2,8 +2,8 @@
 import AnimationLottie from "@/components/helper/animation-lottie";
 import GlowCard from "@/components/helper/glow-card";
 import Image from "next/image";
-import { BsPersonWorkspace } from "react-icons/bs";
 import { educations } from "@/utils/data/educations";
+import { Icon } from "@iconify/react";
 
 
 export default function Education() {
@@ -60,7 +60,7 @@ export default function Education() {
                       </div>
                       <div className="flex items-center gap-x-8 px-3 py-5">
                         <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                          <BsPersonWorkspace size={36} />
+                          <Icon icon="fa-brands:graduation-cap" width="40" height="40" color="#ec4899" />
                         </div>
                         <div>
                           <p className="text-base sm:text-xl mb-2 font-medium uppercase">

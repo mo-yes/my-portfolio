@@ -1,42 +1,72 @@
-// @flow strict
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 
-
 export default function Navbar() {
-  return (
-    <nav className="bg-transparent ">
-      <div className="flex items-center justify-between py-5">
-        <div className="flex shrink-0 items-center">
-          <Link
-            href="/"
-            className=" text-[#16f2b3] text-3xl font-bold">
-            Mohamed Yasser
-          </Link>
-        </div>
+  const [open, setOpen] = useState(false);
 
-        <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-1 md:border-0 md:opacity-100" id="navbar-default">
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#about">
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">ABOUT</div>
-            </Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#experience"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">EXPERIENCE</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#skills"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">SKILLS</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#education"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">EDUCATION</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#blog"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">BLOGS</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">PROJECTS</div></Link>
-          </li>
+  const navLinks = [
+    { href: "#about", label: "About" },
+    { href: "#experience", label: "Experience" },
+    { href: "#skills", label: "Skills" },
+    { href: "#education", label: "Education" },
+    { href: "#blog", label: "Blogs" },
+    { href: "#projects", label: "Projects" },
+  ];
+
+  return (
+    <nav className="relative z-50">
+      <div className="flex items-center justify-between py-6">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="text-[32px] font-semibold tracking-wide text-[#16f2b3]"
+        >
+          Mohamed Yasser
+        </Link>
+
+        {/* Desktop Menu */}
+        <ul className="hidden items-center gap-6 md:flex">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={`/${link.href}`}
+                className="text-[18px] uppercase font-light tracking-wide md:text-sm lg:text-[22px] text-white transition-colors hover:text-pink-600"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
+
+        {/* Burger Button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden flex flex-col gap-1"
+          aria-label="Toggle Menu"
+        >
+          <span className="h-0.5 w-6 bg-white" />
+          <span className="h-0.5 w-6 bg-white" />
+          <span className="h-0.5 w-6 bg-white" />
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <ul className="absolute left-0 top-full w-full bg-[#0d1224] py-6 md:hidden">
+          {navLinks.map((link) => (
+            <li key={link.href} className="px-6 py-3">
+              <Link
+                href={`/${link.href}`}
+                onClick={() => setOpen(false)}
+                className="block uppercase text-lg font-medium text-white/90 hover:text-pink-600"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   );
-};
+}

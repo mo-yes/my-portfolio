@@ -1,6 +1,5 @@
+import { Icon } from '@iconify/react';
 import Link from 'next/link';
-import { CgGitFork } from "react-icons/cg";
-import { IoStar } from "react-icons/io5";
 
 export default function Footer() {
   return (
@@ -19,7 +18,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/mohamed-yasser-dev"
               className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
             >
-              <IoStar />
+            <Icon icon="fa-brands:star" width="40" height="40" color="#ec4899"  />
               <span>Star</span>
             </Link>
             <Link
@@ -27,7 +26,7 @@ export default function Footer() {
               href="https://github.com/mo-yes"
               className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
             >
-              <CgGitFork />
+            <Icon icon="fa-brands:gitFork" width="40" height="40" color="#ec4899" />
               <span>Fork</span>
             </Link>
           </div>
