@@ -12,25 +12,41 @@ export default function Hero() {
         alt="Hero"
         width={1572}
         height={795}
-        className="absolute -top-24.5 -z-10"
-      />
+        className="absolute -top-24.5 -z-10"/>
 {/* Hero Content */}
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8 py-8 md:py-12 lg:py-14
 ">
-        <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
+    <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
 {/* Hero Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-[2.8rem] xl:text-[3rem]
-leading-10 md:leading-12 lg:leading-[3.2rem]
-">
-            Hello, <br />
-            This is {' '}
-            <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">{personalData.designation}</span>
-            .
-          </h1>
+<h1
+  className="
+    text-sm
+    sm:text-base
+    md:text-xl
+    lg:text-2xl
+    xl:text-3xl
+
+    leading-tight
+    font-normal
+    whitespace-normal
+  "
+>
+  <span className="block">
+    Hello, This is{" "} <br />
+    <span className="text-pink-500 font-medium">
+      {personalData.name}
+    </span>
+  </span>
+
+  <span className="block">
+    {` I'm a Professional `} <br />
+    <span className="text-[#16f2b3] font-medium">
+      {personalData.designation}
+    </span>
+  </span>
+</h1>
 {/* Hero Socials Icons */}
-          <div className="my-12 flex items-center gap-10 ">
+<div className="my-12 flex items-center gap-10 ">
             <Link
               href={personalData.github}
               target='_blank'
@@ -63,7 +79,7 @@ leading-10 md:leading-12 lg:leading-[3.2rem]
             >
               <Icon icon="fa-brands:twitter" width="40" height="40" color="#ec4899" />
             </Link>
-          </div>
+</div>
 {/* Hero Buttons */}
 <div className="flex flex-col md:flex-row items-center gap-3 w-full">
 
@@ -96,7 +112,7 @@ leading-10 md:leading-12 lg:leading-[3.2rem]
   </Link>
 
   {/* Button Three */}
-  <Link href={personalData.github} target="_blank" className="w-full md:w-auto">
+  {/* <Link href={personalData.github} target="_blank" className="w-full md:w-auto">
     <button type="button" className="cursor-pointer hero-btn group flex items-center justify-center gap-2 px-6 py-3 rounded-full w-full md:w-auto text-white font-semibold uppercase transition-all duration-300 bg-gradient-to-r from-green-400 to-teal-500">
       <span>GitHub</span>
       <Icon
@@ -107,29 +123,26 @@ leading-10 md:leading-12 lg:leading-[3.2rem]
         className="transition-transform duration-300 group-hover:translate-x-1"
       />
     </button>
-  </Link>
+  </Link> */}
 
-</div>
-
-
-
-          </div>
-          <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-linear-to-r to-[#0a0d37]">
+    </div>
+    </div>
+    <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-linear-to-r to-[#0a0d37]">
 {/* Hero Highlight Code  */}
-          <div className="flex flex-row">
+    <div className="flex flex-row">
             <div className="h-px w-full bg-linear-to-r from-transparent via-pink-500 to-violet-600"></div>
             <div className="h-px w-full bg-linear-to-r from-violet-600 to-transparent"></div>
-          </div>
+    </div>
 {/* Hero Terminal code */}
-          <div className="px-4 lg:px-8 py-5">
+    <div className="px-4 lg:px-8 py-5">
             <div className="flex flex-row space-x-2">
               <div className="h-3 w-3 rounded-full bg-red-400"></div>
               <div className="h-3 w-3 rounded-full bg-orange-400"></div>
               <div className="h-3 w-3 rounded-full bg-green-200"></div>
             </div>
-          </div>
+    </div>
 {/* Hero Function code */}
-          <div className="overflow-hidden border-t-2 border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
+    <div className="overflow-hidden border-t-2 border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
             <code className="font-mono text-xs md:text-sm lg:text-base">
               <div className="blink">
                 <span className="mr-2 text-pink-500">const</span>
@@ -144,42 +157,42 @@ leading-10 md:leading-12 lg:leading-[3.2rem]
                 <span className="text-gray-400">{`',`}</span>
               </div>
               <div className="ml-4 lg:ml-8 mr-2">
-                <span className=" text-white">skills:</span>
+                <span className=" text-white ">skills:</span>
                 <span className="text-gray-400">{`['`}</span>
-                <span className="text-amber-300">REACT</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">NEXT.JS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">REDUX</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">JAVASCRIPT</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">TYPESCRIPT</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">JQUERY</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">HTML</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">CSS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">BOOTSTRAP</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">TAILWIND CSS</span>
-                <span className="text-gray-400">{"'],"}</span>
+                <span className="text-amber-300 capitalize">react</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">next</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">(javascript)ES6+</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">typescript</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">html 5</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">css 3</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">bootstrap</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">jquery</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">tailwind</span>
+                <span className="text-gray-400 capitalize">{"', '"}</span>
+                <span className="text-amber-300 capitalize">sass</span>
+                <span className="text-gray-400 capitalize">{"'],"}</span>
               </div>
               <div>
                 <span className="ml-4 lg:ml-8 mr-2 text-white">hardWorker:</span>
-                <span className="text-orange-400">true</span>
+                <span className="text-blue-400">true</span>
                 <span className="text-gray-400">,</span>
               </div>
               <div>
                 <span className="ml-4 lg:ml-8 mr-2 text-white">quickLearner:</span>
-                <span className="text-orange-400">true</span>
+                <span className="text-blue-400">true</span>
                 <span className="text-gray-400">,</span>
               </div>
               <div>
                 <span className="ml-4 lg:ml-8 mr-2 text-white">problemSolver:</span>
-                <span className="text-orange-400">true</span>
+                <span className="text-blue-400">true</span>
                 <span className="text-gray-400">,</span>
               </div>
               <div>
@@ -211,10 +224,10 @@ leading-10 md:leading-12 lg:leading-[3.2rem]
               <div><span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span></div>
               <div><span className="text-gray-400">{`};`}</span></div>
             </code>
-          </div>
+    </div>
 
-        </div>
-      </div>
+    </div>
+    </div>
     </section>
   );
 };

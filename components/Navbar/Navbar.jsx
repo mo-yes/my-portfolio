@@ -15,7 +15,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="relative z-50">
+    <nav className="relative z-50 ">
       <div className="flex items-center justify-between py-6">
         {/* Logo */}
         <Link
@@ -31,7 +31,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={`/${link.href}`}
-                className="text-[18px] uppercase font-light tracking-wide md:text-sm lg:text-[22px] text-white transition-colors hover:text-pink-600"
+                className="text-[18px] uppercase font-light tracking-wide md:text-sm lg:text-sm text-white transition-colors hover:text-pink-600"
               >
                 {link.label}
               </Link>

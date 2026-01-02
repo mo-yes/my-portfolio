@@ -9,7 +9,7 @@ import { Icon } from "@iconify/react";
 
 export default function Experience() {
   return (
-    <div id="experience" className="relative min-h-screen z-50 border-t my-12 lg:my-24 border-[#25213b]">
+    <section id="experience" className="relative min-h-screen z-50 border-t my-12 lg:my-24 border-[#25213b]">
       <Image
         src="/hero.svg"
         alt="Hero"
@@ -75,6 +75,6 @@ export default function Experience() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

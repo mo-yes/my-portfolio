@@ -1,8 +1,9 @@
 import "./globals.css";
-import { DM_Sans, Inter, Manrope, Poppins } from "next/font/google";
+import {  Poppins } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import ToastProvider from "@/components/Providers/ToastProvider";
+import ScrollToTop from "@/components/helper/ScrollToTop";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]  });
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <main className="relative min-h-screen mx-auto px-6 sm:px-12 lg:max-w-280 xl:max-w-304 2xl:max-w-368">
           <Navbar />
           {children}
+          <ScrollToTop />
         </main>
         <Footer/>
       </body>
