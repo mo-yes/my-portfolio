@@ -11,7 +11,10 @@ export const contactFormSchema = z.object({
     .string()
     .nonempty("Email is required")
     .min(1, "Email is required")
-    .regex(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.{A-za-z}{2,}$/, "Invalid email format"),
+    .regex(
+    /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+    "Invalid email format"
+  ),
 
   phone: z
     .string()
