@@ -65,7 +65,7 @@ export const blogsData = [
   {
     id: "next-js-pages",
     title: "Next.js Pages & Routing",
-    cover_image: "/Blog-Images/Next-Router.jfif",
+    cover_image: "/Blog-Images/Learn-how-routing-works-in-Next.js-with-pages.png",
     source_url: "https://nextjs.org/docs/pages",
     description: "Learn how routing works in Next.js with pages and dynamic routes."
   },
