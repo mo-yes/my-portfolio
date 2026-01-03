@@ -1,119 +1,148 @@
 "use client";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { contactFormSchema } from "@/Services/Schema/validation";
 import emailjs from "@emailjs/browser";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { contactFormSchema } from "@/Services/Schema/validation";
 import { Icon } from "@iconify/react";
 
 export default function ContactForm() {
-  const [userInput, setUserInput] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting, touchedFields },
+    reset,
+  } = useForm({
+    resolver: zodResolver(contactFormSchema),
+    // mode: "onBlur",         
+    defaultValues: {
+      name: "",
+      email: "mohamedyasserdev1@gmail.com",
+      phone: "",
+      message: "",
+    },
   });
-  const [isLoading, setIsLoading] = useState(false);
 
-  function handleSendMail(e){
-    e.preventDefault();
-    const validation = contactFormSchema.safeParse(userInput);
-    if (!validation.success) {
-      validation.error.errors.forEach(err => toast.error(err.message));
-      return;
-    }
-
-    setIsLoading(true);
-
-    emailjs.send(
-      "service_r2z190i",
-      "template_jknza1n",
-      userInput,
-      "jq_kWm_-5cEk-dta_"
-    ).then(() => {
+  async function onSubmit(data) {
+    try {
+      await emailjs.send(
+        "service_r2z190i",
+        "template_jknza1n",
+        data,
+        "jq_kWm_-5cEk-dta_"
+      );
       toast.success("Message sent successfully!");
-      setUserInput({ name: "", email: "", phone: "", message: "" });
-    }).catch(() => toast.error("Failed to send message."))
-      .finally(() => setIsLoading(false));
-  };
+      reset();
+    } catch {
+      toast.error("Failed to send message.");
+    }
+  }
+
+  const showError = (fieldName) => touchedFields[fieldName] && errors[fieldName];
 
   return (
     <div>
       <ToastContainer />
-      <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">Contact with me</p>
+
+      <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
+        Contact with me
+      </p>
+
       <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
         <p className="text-sm text-[#d3d8e8]">
-          If you have any questions or concerns, please don't hesitate to contact me.
+          If you have any questions or concerns, please don&apos;t hesitate to contact me.
         </p>
 
-        <form onSubmit={handleSendMail} className="mt-6 flex flex-col gap-4">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="mt-6 flex flex-col gap-4"
+        >
           {/* Name */}
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Name:</label>
+            <label>Your Name:</label>
             <input
-              type="text"
-              maxLength="100"
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] px-3 py-2 outline-none"
-              value={userInput.name}
-              onChange={e => setUserInput({...userInput, name: e.target.value})}
+              {...register("name")}
+              className={`bg-[#10172d] border rounded-md px-3 py-2 outline-none ${
+                showError("name")
+                  ? "border-red-500"
+                  : "border-[#353a52] focus:border-[#16f2b3]"
+              }`}
             />
+            {showError("name") && (
+              <span className="text-red-500 text-sm">{errors.name.message}</span>
+            )}
           </div>
 
           {/* Email */}
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Email:</label>
+            <label>Your Email:</label>
             <input
+              {...register("email")}
               type="email"
-              maxLength="100"
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] px-3 py-2 outline-none"
-              value={userInput.email}
-              onChange={e => setUserInput({...userInput, email: e.target.value})}
+              className={`bg-[#10172d] border rounded-md px-3 py-2 outline-none ${
+                showError("email")
+                  ? "border-red-500"
+                  : "border-[#353a52] focus:border-[#16f2b3]"
+              }`}
             />
+            {showError("email") && (
+              <span className="text-red-500 text-sm">{errors.email.message}</span>
+            )}
           </div>
 
           {/* Phone */}
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Phone:</label>
+            <label>Your Phone:</label>
             <input
-              type="text"
-              maxLength="20"
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] px-3 py-2 outline-none"
-              value={userInput.phone}
-              onChange={e => setUserInput({...userInput, phone: e.target.value})}
+              {...register("phone")}
+              className={`bg-[#10172d] border rounded-md px-3 py-2 outline-none ${
+                showError("phone")
+                  ? "border-red-500"
+                  : "border-[#353a52] focus:border-[#16f2b3]"
+              }`}
             />
+            {showError("phone") && (
+              <span className="text-red-500 text-sm">{errors.phone.message}</span>
+            )}
           </div>
 
           {/* Message */}
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Message:</label>
+            <label>Your Message:</label>
             <textarea
-              maxLength="500"
+              {...register("message")}
               rows="4"
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] px-3 py-2 outline-none"
-              value={userInput.message}
-              onChange={e => setUserInput({...userInput, message: e.target.value})}
+              className={`bg-[#10172d] border rounded-md px-3 py-2 outline-none ${
+                showError("message")
+                  ? "border-red-500"
+                  : "border-[#353a52] focus:border-[#16f2b3]"
+              }`}
             />
+            {showError("message") && (
+              <span className="text-red-500 text-sm">{errors.message.message}</span>
+            )}
           </div>
 
           {/* Submit */}
           <div className="flex flex-col items-center gap-3">
-        <button
-  type="submit"
-  disabled={isLoading}
-  className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 text-white font-medium transition-all duration-300 ease-out hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
->
-  {isLoading ? (
-    <>
-      <Icon icon="fa-brands:loader" width="40" height="40" color="#ec4899"  className="w-5 h-5 animate-spin" />
-      <span>Sending...</span>
-    </>
-  ) : (
-    <>
-      <Icon icon="fa-brands:mail-forward" width="40" height="40" color="#ec4899"  className="w-5 h-5 transition-transform duration-300 ease-out group-hover:translate-x-1" />
-      <span>Send Message</span>
-    </>
-  )}
-        </button>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-pink-500 to-violet-600 text-white font-medium transition-all duration-300 ease-out hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? (
+                <>
+                  <span>Sending...</span>
+                  <Icon icon="svg-spinners:6-dots-rotate" width="25" height="25" />
+                </>
+              ) : (
+                <>
+                  <span>Send Message</span>
+                  <Icon icon="ic:sharp-send" width="25" height="25" />
+                </>
+              )}
+            </button>
           </div>
         </form>
       </div>

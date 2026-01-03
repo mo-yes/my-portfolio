@@ -9,13 +9,11 @@ html, body {
   scroll-behavior: smooth;
 }
 
-
 @media (min-width: 1536px) {
   html {
     font-size: 18px;
   }
 }
-
 
 h1 {
   font-size: 3rem;
@@ -30,29 +28,28 @@ h3 {
   font-size: 1.75rem;
 }
 
-
-
-#sticky-card-1 { --index: 1; }
-#sticky-card-2 { --index: 2; }
-#sticky-card-3 { --index: 3; }
-#sticky-card-4 { --index: 4; }
-#sticky-card-5 { --index: 5; }
-#sticky-card-6 { --index: 6; }
+#sticky-card-1 {
+    --index: 1; 
+    }
+#sticky-card-2 {
+    --index: 2; 
+    }
+#sticky-card-3 {
+    --index: 3; 
+    }
+#sticky-card-4 {
+    --index: 4; 
+    }
+#sticky-card-5 {
+    --index: 5; 
+    }
+#sticky-card-6 {
+    --index: 6; 
+    }
 
 .sticky-card {
   top: calc(var(--index) * 4rem);
 }
-
-/* 
-.hero-btn {
-  @apply flex items-center justify-center gap-2 px-6 py-3 rounded-full text-white font-semibold uppercase text-sm md:text-base w-full md:w-auto transition-all duration-300;
-} */
-
-
-
-
-
-
 
 .glow-container {
   --spread: 60;
@@ -150,13 +147,12 @@ h3 {
   mask-clip: padding-box, border-box;
   mask-composite: intersect;
 }
+
 @media (max-width: 768px) {
   .glows {
     display: none;
   }
 }
-
-
 
 @custom-variant dark (&:is(.dark *));
 
@@ -271,4 +267,3 @@ h3 {
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
-

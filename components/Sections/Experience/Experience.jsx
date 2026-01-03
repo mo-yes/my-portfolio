@@ -1,5 +1,3 @@
-// @flow strict
-
 import { experiences } from "@/utils/data/experience";
 import Image from "next/image";
 import AnimationLottie from "@/components/helper/animation-lottie";
@@ -10,6 +8,7 @@ import { Icon } from "@iconify/react";
 export default function Experience() {
   return (
     <section id="experience" className="relative min-h-screen z-50 border-t my-12 lg:my-24 border-[#25213b]">
+      {/* Background Image */}
       <Image
         src="/hero.svg"
         alt="Hero"
@@ -19,6 +18,7 @@ export default function Experience() {
       />
 
       <div className="flex justify-center my-5 lg:py-8">
+        {/* Header */}
         <div className="flex  items-center">
           <span className="w-24 h-0.5 bg-[#1a1443]"></span>
           <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
@@ -27,16 +27,18 @@ export default function Experience() {
           <span className="w-24 h-0.5 bg-[#1a1443]"></span>
         </div>
       </div>
-
+          {/* Card Section  */}
       <div className="py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="flex justify-center items-start">
+            {/* Lottie Animation */}
             <div className="w-full h-full">
               <AnimationLottie animationPath={"/lottie/code.json"} />
             </div>
           </div>
 
           <div>
+            {/* Experiences Map */}
             <div className="flex flex-col gap-6">
               {
                 experiences.map(experience => (
@@ -56,7 +58,8 @@ export default function Experience() {
                       </div>
                       <div className="flex items-center gap-x-8 px-3 py-5">
                         <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                          <Icon icon="fa-brands:workspace" width="40" height="40" color="#ec4899"  />
+                          {/* Icon */}
+                          <Icon icon="f7:person-crop-rectangle" width="56" height="56" />
                         </div>
                         <div>
                           <p className="text-base sm:text-xl mb-2 font-medium uppercase">
