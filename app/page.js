@@ -15,10 +15,10 @@ export default function Home() {
       <About />
       <Experience />
       <Skills />
-      <Projects />
       <Education/>
       <Blog blogs={blogsData}/>
       <Contact/>
+      <Projects />
     </>
   );
 }
