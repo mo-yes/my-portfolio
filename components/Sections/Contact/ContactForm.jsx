@@ -15,10 +15,10 @@ export default function ContactForm() {
     reset,
   } = useForm({
     resolver: zodResolver(contactFormSchema),
-    mode: "onBlur",         
+    // mode: "onBlur",
     defaultValues: {
       name: "",
-      email: "mohamedyasserdev1@gmail.com",
+      email: "",
       phone: "",
       message: "",
     },
@@ -39,7 +39,8 @@ export default function ContactForm() {
     }
   }
 
-  const showError = (fieldName) => touchedFields[fieldName] && errors[fieldName];
+  const showError = (fieldName) =>
+    touchedFields[fieldName] && errors[fieldName];
 
   return (
     <div>
@@ -51,7 +52,8 @@ export default function ContactForm() {
 
       <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
         <p className="text-sm text-[#d3d8e8]">
-          If you have any questions or concerns, please don&apos;t hesitate to contact me.
+          If you have any questions or concerns, please don&apos;t hesitate to
+          contact me.
         </p>
 
         <form
@@ -70,7 +72,9 @@ export default function ContactForm() {
               }`}
             />
             {showError("name") && (
-              <span className="text-red-500 text-sm">{errors.name.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.name.message}
+              </span>
             )}
           </div>
 
@@ -87,7 +91,9 @@ export default function ContactForm() {
               }`}
             />
             {showError("email") && (
-              <span className="text-red-500 text-sm">{errors.email.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.email.message}
+              </span>
             )}
           </div>
 
@@ -103,7 +109,9 @@ export default function ContactForm() {
               }`}
             />
             {showError("phone") && (
-              <span className="text-red-500 text-sm">{errors.phone.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.phone.message}
+              </span>
             )}
           </div>
 
@@ -120,7 +128,9 @@ export default function ContactForm() {
               }`}
             />
             {showError("message") && (
-              <span className="text-red-500 text-sm">{errors.message.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.message.message}
+              </span>
             )}
           </div>
 
@@ -134,7 +144,11 @@ export default function ContactForm() {
               {isSubmitting ? (
                 <>
                   <span>Sending...</span>
-                  <Icon icon="svg-spinners:6-dots-rotate" width="25" height="25" />
+                  <Icon
+                    icon="svg-spinners:6-dots-rotate"
+                    width="25"
+                    height="25"
+                  />
                 </>
               ) : (
                 <>
