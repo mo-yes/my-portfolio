@@ -17,8 +17,8 @@ export default function Home() {
       <Skills />
       <Education/>
       <Blog blogs={blogsData}/>
-      <Contact/>
       <Projects />
+      <Contact/>
     </>
   );
 }
