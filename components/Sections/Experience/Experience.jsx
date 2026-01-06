@@ -10,7 +10,7 @@ export default function Experience() {
   return (
     <motion.section
       id="experience"
-      className="relative min-h-screen z-10 border-t my-12 lg:my-24 border-[#25213b]"
+      className="relative min-h-screen z-10 border-t my-12 lg:my-24 border-[#25213b] pt-24"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

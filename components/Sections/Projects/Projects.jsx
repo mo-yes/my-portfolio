@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     <motion.section
       id='projects'
-      className="relative z-10 my-12 lg:my-24"
+      className="relative z-10 my-12 lg:my-24 pt-30"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
