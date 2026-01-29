@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.className} bg-[#0d1224] text-white`}>
         <ToastProvider />
         <Navbar />
-        <main className="relative min-h-screen mx-auto px-6 sm:px-12 pt-28 lg:max-w-280 xl:max-w-304 2xl:max-w-368">
+        <main className="relative min-h-screen mx-auto px-6 sm:px-12 pt-20 lg:max-w-280 xl:max-w-304 2xl:max-w-368">
           {children}
           <ScrollToTop />
         </main>
