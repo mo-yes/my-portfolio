@@ -21,7 +21,7 @@ export default function NavbarView({
       className={`fixed top-0 left-0 z-50  w-full transition-all duration-300
         ${
           scrolled
-            ? "backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+            ? "backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.40)]"
             : "bg-transparent"
         }`}
     >
