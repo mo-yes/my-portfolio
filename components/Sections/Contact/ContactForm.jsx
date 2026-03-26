@@ -27,10 +27,10 @@ export default function ContactForm() {
   async function onSubmit(data) {
     try {
       await emailjs.send(
-        "service_r2z190i",
-        "template_jknza1n",
-        data,
-        "jq_kWm_-5cEk-dta_"
+        "service_c2dfcxb", // Service ID
+        "template_jknza1n", // Template ID
+        data, // بيانات الفورم
+        "KX1mdzKGBuzjt0iel", // Public Key الجديد
       );
       toast.success("Message sent successfully!");
       reset();
